@@ -11,8 +11,10 @@
         <link rel="stylesheet" href="css/leaflet-measure.css">
         <style>
         #map {
-            width: 2063px;
-            height: 1173px;
+            width: 2550px;
+            height: 1440px;
+            padding: 0;
+            margin: 0;
         }
         </style>
         <title></title>
@@ -36,7 +38,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[44.899510542036154,12.28890959648787],[47.22821838877497,18.194011096001674]]);
+        }).fitBounds([[46.5182, 13.6148],[45.591, 15.8025]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -59,7 +61,7 @@
         map.getPane('pane_OpenStreetMapmonochrome_0').style.zIndex = 400;
         var layer_OpenStreetMapmonochrome_0 = L.tileLayer('http://a.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
             pane: 'pane_OpenStreetMapmonochrome_0',
-            opacity: 1.0,
+            opacity: 0.7,
             attribution: '',
             minZoom: 1,
             maxZoom: 28,
@@ -285,7 +287,7 @@
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['ImeRegije'] !== null?String('<div style="color: #000000; font-size: 10pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['ImeRegije']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Regije_2'});
+            layer.bindTooltip((layer.feature.properties['ImeRegije'] !== null?String('<div style="color: #000000; font-size: 11pt; text-shadow: -1px -1px 0 #F8F8F8, 1px -1px 0 #F8F8F8, -1px 1px 0 #F8F8F8, 1px 1px 0 #F8F8F8; font-weight: bold; font-family: \'Rockwell Extra Bold\', sans-serif;">' + layer.feature.properties['ImeRegije']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Regije_2'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
