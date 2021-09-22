@@ -85,6 +85,10 @@
                         <td>' + (feature.properties['Prebivalci'] !== null ? autolinker.link(feature.properties['Prebivalci'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
+                        <th scope="row">Bruto Plača 2020</th>\
+                        <td>' + (feature.properties['BrPl_2020'] !== null ? autolinker.link(feature.properties['BrPl_2020'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
                         <th scope="row">Bruto plača indeks 2020</th>\
                         <td>' + (feature.properties['BrutoPlInd'] !== null ? autolinker.link(feature.properties['BrutoPlInd'].toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -104,11 +108,7 @@
                         <th scope="row">Kohezijska regija</th>\
                         <td>' + (feature.properties['Kohezija'] !== null ? autolinker.link(feature.properties['Kohezija'].toLocaleString()) : '') + '</td>\
                     </tr>\
-                    <tr>\
-                        <th scope="row">Bruto Plača 2020</th>\
-                        <td>' + (feature.properties['BrPl_2020'] !== null ? autolinker.link(feature.properties['BrPl_2020'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
+                                    </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
