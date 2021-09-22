@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="css/leaflet-measure.css">
         <style>
         #map {
-            width: 1759px;
+            width: 2063px;
             height: 1173px;
         }
         </style>
@@ -30,13 +30,13 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet-measure.js"></script>
-        <script src="data/Obine_1.js"></script>
+        <script src="data/obcine_2021_1.js"></script>
         <script src="data/Regije_2.js"></script>
         <script src="data/Kohezija_3.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[45.5308758719003,13.562351781840988],[46.683286004926565,16.05538773546404]]);
+        }).fitBounds([[44.899510542036154,12.28890959648787],[47.22821838877497,18.194011096001674]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -68,13 +68,11 @@
         });
         layer_OpenStreetMapmonochrome_0;
         map.addLayer(layer_OpenStreetMapmonochrome_0);
-        function pop_Obine_1(feature, layer) {
+        function pop_obcine_2021_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['ID'] !== null ? autolinker.link(feature.properties['ID'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Ime</strong><br />' + (feature.properties['Ime'] !== null ? autolinker.link(feature.properties['Ime'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Obcina</th>\
+                        <td>' + (feature.properties['Obcina'] !== null ? autolinker.link(feature.properties['Obcina'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Povrsina</th>\
@@ -85,104 +83,124 @@
                         <td>' + (feature.properties['Prebivalci'] !== null ? autolinker.link(feature.properties['Prebivalci'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">MesecnaPla</th>\
-                        <td>' + (feature.properties['MesecnaPla'] !== null ? autolinker.link(feature.properties['MesecnaPla'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Bruto plača indeks 2020</th>\
+                        <td>' + (feature.properties['BrutoPlInd'] !== null ? autolinker.link(feature.properties['BrutoPlInd'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Koeficient razvitosti občine</th>\
+                        <td>' + (feature.properties['KoefRazvit'] !== null ? autolinker.link(feature.properties['KoefRazvit'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Obseg sofinanciranja investicij iz državnega proračuna (%) (24.a člen ZFO-1)</th>\
+                        <td>' + (feature.properties['ObsegSofin'] !== null ? autolinker.link(feature.properties['ObsegSofin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Statistična regija</th>\
+                        <td>' + (feature.properties['Statisticn'] !== null ? autolinker.link(feature.properties['Statisticn'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Kohezijska regija</th>\
+                        <td>' + (feature.properties['Kohezija'] !== null ? autolinker.link(feature.properties['Kohezija'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Bruto Plača 2020</th>\
+                        <td>' + (feature.properties['BrPl_2020'] !== null ? autolinker.link(feature.properties['BrPl_2020'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Obine_1_0(feature) {
-            if (feature.properties['MesecnaPla'] >= 0.000000 && feature.properties['MesecnaPla'] <= 1504.570000 ) {
+        function style_obcine_2021_1_0(feature) {
+            if (feature.properties['BrPl_2020'] >= 0.000000 && feature.properties['BrPl_2020'] <= 1504.570000 ) {
                 return {
-                pane: 'pane_Obine_1',
+                pane: 'pane_obcine_2021_1',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.40299999999999997)',
+                color: 'rgba(35,35,35,0.47)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(215,25,28,0.40299999999999997)',
+                fillColor: 'rgba(215,25,28,0.47)',
                 interactive: true,
             }
             }
-            if (feature.properties['MesecnaPla'] >= 1504.570000 && feature.properties['MesecnaPla'] <= 1585.044000 ) {
+            if (feature.properties['BrPl_2020'] >= 1504.570000 && feature.properties['BrPl_2020'] <= 1585.044000 ) {
                 return {
-                pane: 'pane_Obine_1',
+                pane: 'pane_obcine_2021_1',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.40299999999999997)',
+                color: 'rgba(35,35,35,0.47)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(253,174,97,0.40299999999999997)',
+                fillColor: 'rgba(253,174,97,0.47)',
                 interactive: true,
             }
             }
-            if (feature.properties['MesecnaPla'] >= 1585.044000 && feature.properties['MesecnaPla'] <= 1647.848000 ) {
+            if (feature.properties['BrPl_2020'] >= 1585.044000 && feature.properties['BrPl_2020'] <= 1647.848000 ) {
                 return {
-                pane: 'pane_Obine_1',
+                pane: 'pane_obcine_2021_1',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.40299999999999997)',
+                color: 'rgba(35,35,35,0.47)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,255,192,0.40299999999999997)',
+                fillColor: 'rgba(255,255,192,0.47)',
                 interactive: true,
             }
             }
-            if (feature.properties['MesecnaPla'] >= 1647.848000 && feature.properties['MesecnaPla'] <= 1754.004000 ) {
+            if (feature.properties['BrPl_2020'] >= 1647.848000 && feature.properties['BrPl_2020'] <= 1754.004000 ) {
                 return {
-                pane: 'pane_Obine_1',
+                pane: 'pane_obcine_2021_1',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.40299999999999997)',
+                color: 'rgba(35,35,35,0.47)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(166,217,106,0.40299999999999997)',
+                fillColor: 'rgba(166,217,106,0.47)',
                 interactive: true,
             }
             }
-            if (feature.properties['MesecnaPla'] >= 1754.004000 && feature.properties['MesecnaPla'] <= 2192.300000 ) {
+            if (feature.properties['BrPl_2020'] >= 1754.004000 && feature.properties['BrPl_2020'] <= 2192.300000 ) {
                 return {
-                pane: 'pane_Obine_1',
+                pane: 'pane_obcine_2021_1',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.40299999999999997)',
+                color: 'rgba(35,35,35,0.47)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(26,150,65,0.40299999999999997)',
+                fillColor: 'rgba(26,150,65,0.47)',
                 interactive: true,
             }
             }
         }
-        map.createPane('pane_Obine_1');
-        map.getPane('pane_Obine_1').style.zIndex = 401;
-        map.getPane('pane_Obine_1').style['mix-blend-mode'] = 'normal';
-        var layer_Obine_1 = new L.geoJson(json_Obine_1, {
+        map.createPane('pane_obcine_2021_1');
+        map.getPane('pane_obcine_2021_1').style.zIndex = 401;
+        map.getPane('pane_obcine_2021_1').style['mix-blend-mode'] = 'normal';
+        var layer_obcine_2021_1 = new L.geoJson(json_obcine_2021_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Obine_1',
-            layerName: 'layer_Obine_1',
-            pane: 'pane_Obine_1',
-            onEachFeature: pop_Obine_1,
-            style: style_Obine_1_0,
+            dataVar: 'json_obcine_2021_1',
+            layerName: 'layer_obcine_2021_1',
+            pane: 'pane_obcine_2021_1',
+            onEachFeature: pop_obcine_2021_1,
+            style: style_obcine_2021_1_0,
         });
-        bounds_group.addLayer(layer_Obine_1);
-        map.addLayer(layer_Obine_1);
+        bounds_group.addLayer(layer_obcine_2021_1);
+        map.addLayer(layer_obcine_2021_1);
         function pop_Regije_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -259,7 +277,7 @@
         bounds_group.addLayer(layer_Kohezija_3);
         map.addLayer(layer_Kohezija_3);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/Kohezija_3.png" /> Kohezija': layer_Kohezija_3,'<img src="legend/Regije_2.png" /> Regije': layer_Regije_2,'Občine<br /><table><tr><td style="text-align: center;"><img src="legend/Obine_1_015050.png" /></td><td>0 - 1505</td></tr><tr><td style="text-align: center;"><img src="legend/Obine_1_150515851.png" /></td><td>1505 - 1585</td></tr><tr><td style="text-align: center;"><img src="legend/Obine_1_158516482.png" /></td><td>1585 - 1648</td></tr><tr><td style="text-align: center;"><img src="legend/Obine_1_164817543.png" /></td><td>1648 - 1754</td></tr><tr><td style="text-align: center;"><img src="legend/Obine_1_175421924.png" /></td><td>1754 - 2192</td></tr></table>': layer_Obine_1,"OpenStreetMap monochrome": layer_OpenStreetMapmonochrome_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/Kohezija_3.png" /> Kohezija': layer_Kohezija_3,'<img src="legend/Regije_2.png" /> Regije': layer_Regije_2,'obcine_2021<br /><table><tr><td style="text-align: center;"><img src="legend/obcine_2021_1_015050.png" /></td><td>0 - 1505</td></tr><tr><td style="text-align: center;"><img src="legend/obcine_2021_1_150515851.png" /></td><td>1505 - 1585</td></tr><tr><td style="text-align: center;"><img src="legend/obcine_2021_1_158516482.png" /></td><td>1585 - 1648</td></tr><tr><td style="text-align: center;"><img src="legend/obcine_2021_1_164817543.png" /></td><td>1648 - 1754</td></tr><tr><td style="text-align: center;"><img src="legend/obcine_2021_1_175421924.png" /></td><td>1754 - 2192</td></tr></table>': layer_obcine_2021_1,"OpenStreetMap monochrome": layer_OpenStreetMapmonochrome_0,},{collapsed:false}).addTo(map);
         setBounds();
         var i = 0;
         layer_Regije_2.eachLayer(function(layer) {
