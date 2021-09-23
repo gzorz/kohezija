@@ -36,6 +36,22 @@
         <script src="data/Regije_2.js"></script>
         <script src="data/Kohezija_3.js"></script>
         <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+
+            if (e.target.feature.geometry.type === 'Polygon') {
+              highlightLayer.setStyle({
+                color: '#ffff00',
+                fillColor: '#ffff00'
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: '#ffff00',
+                fillOpacity: 1
+              });
+            }
+        }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
         }).fitBounds([[46.5182, 13.6148],[45.591, 15.8025]]);
@@ -71,13 +87,21 @@
         layer_OpenStreetMapmonochrome_0;
         map.addLayer(layer_OpenStreetMapmonochrome_0);
         function pop_obcine_2021_1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">Obcina</th>\
+                        <th scope="row">Občina</th>\
                         <td>' + (feature.properties['Obcina'] !== null ? autolinker.link(feature.properties['Obcina'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Povrsina (km2)</th>\
+                        <th scope="row">Površina (km2)</th>\
                         <td>' + (feature.properties['Povrsina'] !== null ? autolinker.link(feature.properties['Povrsina'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -203,7 +227,16 @@
         });
         bounds_group.addLayer(layer_obcine_2021_1);
         map.addLayer(layer_obcine_2021_1);
+
         function pop_Regije_2(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['ID'] !== null ? autolinker.link(feature.properties['ID'].toLocaleString()) : '') + '</td>\
@@ -304,6 +337,21 @@
         map.on("layerremove", function(){
             resetLabels([layer_Regije_2]);
         });
+
+        function highlightFeature(e) {
+        var layer = e.target;
+
+        layer.setStyle({
+        weight: 5,
+        color: '#666',
+        dashArray: '',
+        fillOpacity: 0.7
+        });
+
+    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+        layer.bringToFront();
+    }
+}
         </script>
     </body>
 </html>
